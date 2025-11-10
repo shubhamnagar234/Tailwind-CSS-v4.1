@@ -1,1 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap');
 @import "tailwindcss";
+
+@theme {
+    --color-primary: skyblue;
+    --font-momoSignature: "Momo Signature", cursive;
+    --font-victorMono: "Victor Mono", monospace;
+}
