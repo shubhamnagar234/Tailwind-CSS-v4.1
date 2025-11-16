@@ -1,7 +1,10 @@
 @import "tailwindcss";
+
+@variant dark (.dark &);
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: var(--color-neutral-50);
+  --foreground: var(--color-neutral-950);
 }
 
 /* tailwind animation */
@@ -16,6 +19,11 @@
       transform: translateX(-100%);
     }
   }
+}
+
+.dark {
+  --background: var(--color-neutral-950);
+  --foreground: var(--color-neutral-50);
 }
 
 @theme inline {
