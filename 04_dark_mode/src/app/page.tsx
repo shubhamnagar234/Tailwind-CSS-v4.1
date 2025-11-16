@@ -1,3 +1,8 @@
+"use client";
+
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+
 const ClaudeLogo = ({ className }: { className?: string }) => {
   return (
     <svg
@@ -127,6 +132,14 @@ const Pattern = () => {
 };
 
 export default function Home() {
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
+  }, []);
+
   const icons = [
     {
       title: "Claude",
@@ -136,7 +149,7 @@ export default function Home() {
     {
       title: "OpenAI",
       circle: "circle-3",
-      icon: <OpenAILogo className="size-4 dark:text-white" />,
+      icon: <OpenAILogo className="size-4" />,
     },
     {
       title: "Meta",
@@ -149,16 +162,23 @@ export default function Home() {
       icon: <GeminiLogo className="size-4" />,
     },
   ];
+
+  const handleThemeChange = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
+  if (!mounted) return null;
+
   return (
     <div className="relative h-full w-full flex items-center justify-center">
-      <div className="relative z-10 h-80 w-60 bg-neutral-300 shadow-2xl border border-neutral-200 rounded-xl overflow-hidden">
+      <div className="relative z-10 h-80 w-60 bg-neutral-50 dark:bg-neutral-900 shadow-2xl border border-neutral-100 dark:border-neutral-800 rounded-xl overflow-hidden">
         <div className="relative mask-r-from-50% mask-l-from-50% mask-b-from-50% mask-t-from-50% ">
           <Pattern />
           <div className="flex items-center gap-4 justify-center h-40 animate-marquee">
             {icons.map((item) => (
               <div
                 key={item.title}
-                className={`rounded-full bg-neutral-400 flex items-center justify-center size-10`}
+                className={`rounded-full bg-neutral-400 dark:bg-neutral-700 flex items-center justify-center size-10`}
               >
                 {item.icon}
               </div>
@@ -166,15 +186,25 @@ export default function Home() {
           </div>
         </div>
         <div className="p-4">
-          <h2 className="font-bold text-neutral-600 text-[10px]">
+          <h2 className="font-bold text-neutral-600 dark:text-white text-[10px]">
             These LLMs are getting out of hand
           </h2>
-          <p className="text-neutral-400 text-[10px] mt-2">
+          <p className="text-neutral-400  dark:text-neutral-300 text-[10px] mt-2">
             Claude, OpenAI, Meta, and Gemini are AI models. They compete in
             general intelligence, safety, multimodality, and open-source
             development.
           </p>
         </div>
+        <button
+          onClick={handleThemeChange}
+          className="px-2 py-1 rounded-lg bg-neutral-100 dark:bg-neutral-800 dark:text-white text-[10px] text-neutral-500 mt-4 cursor-pointer"
+        >
+          {mounted
+            ? theme === "dark"
+              ? "Light mode"
+              : "Dark Mode"
+            : "Toggle Theme"}
+        </button>
       </div>
     </div>
   );
