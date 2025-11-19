@@ -1,9 +1,9 @@
-import { ModeToggle } from "@/components/mode-toggle";
+import { Grid } from "@/components/grid";
 
 export default function Home() {
   return (
-    <>
-      <ModeToggle />
-    </>
+    <section>
+      <Grid />
+    </section>
   );
 }
