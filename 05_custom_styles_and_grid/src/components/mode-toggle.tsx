@@ -6,11 +6,15 @@ import { MoonIcon, SunIcon } from "./icons";
 export const ModeToggle = () => {
   const { theme, setTheme } = useTheme();
 
-  const [systemTheme, setSystemTheme] = useState<"light" | "dark">("light");
+  const [systemTheme, setSystemTheme] = useState<"light" | "dark">(() => {
+    if (typeof window !== "undefined") {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    return "light";
+  });
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    setSystemTheme(mediaQuery.matches ? "dark" : "light");
 
     const handleChange = (event: MediaQueryListEvent) => {
       setSystemTheme(event.matches ? "dark" : "light");
@@ -34,7 +38,7 @@ export const ModeToggle = () => {
         return;
       }
       case "systemTheme": {
-        setSystemTheme(systemTheme === "light" ? "dark" : "light");
+        setSystemTheme(systemTheme === "dark" ? "light" : "dark");
       }
     }
   };
