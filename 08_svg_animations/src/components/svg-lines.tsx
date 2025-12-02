@@ -5,11 +5,22 @@ export const SVGLines = () => {
   return (
     <motion.div
       whileHover="animate"
-      className="h-40 w-40 bg-white flex rounded-md shadow-md items-center justify-center"
+      className="rounded-md flex items-center justify-center "
     >
-      <TopSVG />
-      <MiddleSVG />
-      <BottomSVG />
+      <div className="flex flex-col gap-5 justify-between">
+        <div className="relative text-[10px] text-black">
+          Meeting Summarizer
+          <TopSVG className="absolute top-2 left-32" />
+        </div>
+        <div className="relative text-[10px] text-black">
+          Div Centerer
+          <MiddleSVG className="absolute top-2 left-32" />
+        </div>
+        <div className="relative text-[10px] text-black">
+          Junior Intern
+          <BottomSVG className="absolute top-2 left-32" />
+        </div>
+      </div>
     </motion.div>
   );
 };
@@ -40,29 +51,6 @@ const TopSVG = (props: React.SVGProps<SVGElement>) => {
         stroke="var(--color-line)"
         strokeLinecap="round"
       />
-      <line
-        x1="0.5"
-        y1="1"
-        x2="311.5"
-        y2="1"
-        stroke="url(#line-one-gradient)"
-        strokeLinecap="round"
-      />
-      <defs>
-        <motion.linearGradient
-          gradientUnits="userSpaceOnUse"
-          id="line-one-gradient"
-          initial={{
-            x1: "-20%",
-            x2: "0%",
-            y1: 1,
-            y2: 0,
-          }}
-        >
-          <stop stopColor="var(-color-line)" />
-          <stop offset={"0.33"} stopColor="#F17463" />
-        </motion.linearGradient>
-      </defs>
     </svg>
   );
 };
@@ -93,29 +81,6 @@ const MiddleSVG = (props: React.SVGProps<SVGElement>) => {
         stroke="var(--color-line)"
         strokeLinecap="round"
       />
-      <line
-        x1="0.5"
-        y1="1"
-        x2="322.5"
-        y2="1"
-        stroke="url(#line-one-gradient)"
-        strokeLinecap="round"
-      />
-      <defs>
-        <motion.linearGradient
-          gradientUnits="userSpaceOnUse"
-          id="line-one-gradient"
-          initial={{
-            x1: "-20%",
-            x2: "0%",
-            y1: 1,
-            y2: 0,
-          }}
-        >
-          <stop stopColor="var(-color-line)" />
-          <stop offset={"0.33"} stopColor="#F17463" />
-        </motion.linearGradient>
-      </defs>
     </svg>
   );
 };
@@ -139,35 +104,12 @@ const BottomSVG = (props: React.SVGProps<SVGElement>) => {
       />
       <line
         x1="325.5"
-        y1="31"
+        y1="1"
         x2="325.5"
-        y2="1"
+        y2="31"
         stroke="var(--color-line)"
         strokeLinecap="round"
       />
-      <line
-        x1="0.5"
-        y1="1"
-        x2="311.5"
-        y2="1"
-        stroke="url(#line-one-gradient)"
-        strokeLinecap="round"
-      />
-      <defs>
-        <motion.linearGradient
-          gradientUnits="userSpaceOnUse"
-          id="line-one-gradient"
-          initial={{
-            x1: "-20%",
-            x2: "0%",
-            y1: 1,
-            y2: 0,
-          }}
-        >
-          <stop stopColor="var(-color-line)" />
-          <stop offset={"0.33"} stopColor="#F17463" />
-        </motion.linearGradient>
-      </defs>
     </svg>
   );
 };
