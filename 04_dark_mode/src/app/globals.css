@@ -46,3 +46,7 @@
     transform:  translateX(-200%);
   }
 } */
+
+.card {
+  @apply relative rounded-md my-2 overflow-hidden shadow-sm
+}
