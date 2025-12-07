@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "./button";
 import { Container } from "./container";
 import { Logo } from "./logo";
 import Link from "next/link";
@@ -45,12 +46,7 @@ export const Navbar = () => {
           >
             Login
           </Link>
-          <Link
-            href="/login"
-            className="text-sm text-neutral-600 dark:text-neutral-400 font-medium"
-          >
-            Signup
-          </Link>
+          <Button>Signup</Button>
         </div>
       </Container>
     </div>

@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 import React from "react";
-import Link from "next/link";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLElement> {
   children: React.ReactNode;
@@ -20,7 +19,7 @@ export const Button = ({
   };
 
   return (
-    <Link
+    <button
       className={cn(
         "px-4 py-2 rounded-md",
         variantClasses[variants],
@@ -29,6 +28,6 @@ export const Button = ({
       {...props}
     >
       {children}
-    </Link>
+    </button>
   );
 };
