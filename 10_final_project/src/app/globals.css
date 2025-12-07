@@ -10,6 +10,12 @@
 .dark {
   --background: #171717;
   --foreground: #ffffff;
+
+  --shadow-brand: -82px 54px 27px 0px rgba(255, 255, 255, 0.01),
+    -52px 35px 25px 0px rgba(255, 255, 255, 0.04),
+    -29px 19px 21px 0px rgba(255, 255, 255, 0.15),
+    -13px 9px 16px 0px rgba(255, 255, 255, 0.25),
+    -3px 2px 9px 0px rgba(255, 255, 255, 0);
 }
 
 @theme inline {
@@ -17,4 +23,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
   --font-display: var(--font-manrope);
+
+  --shadow-brand: var(--shadow-brand);
 }
