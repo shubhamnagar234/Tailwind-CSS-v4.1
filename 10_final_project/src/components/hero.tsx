@@ -20,6 +20,7 @@ export const Hero = () => (
           <Link href="#">View role based demos</Link>
         </Button>
       </div>
+      <div className="relative min-h-140 w-full pt-20"></div>
     </Container>
   </div>
 );
